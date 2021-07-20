@@ -1,0 +1,78 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "../../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../../node_modules/bootstrap/scss/_variables.scss";
+@import "../../../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
+
+
+// FONTS 
+
+@font-face {
+    font-family: 'righteousregular';
+    src: url('../fonts/righteous-regular-webfont.woff2') format('woff2'),
+         url('../fonts/righteous-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// ======RESET ==========================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'righteousregular';
+  background-color: $black;
+  color: $white;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+// ====== COLORS VARIABLES ==========================
+$black: #0e0e0e;
+$white: #f7f7f7;
+
+
+// @include media-breakpoint-up(lg)
+
+// ====== HEADER ==========================
+header {
+  
+  nav {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      cursor: pointer;
+      font-size: 2rem;
+    }
+
+    .ul-father {    
+      display: flex;
+      .li-child {
+        padding-right: 1rem;
+      }
+    }
+  }
+}
+
+// ====== MAIN-CONTENT ==========================
+#main-content {
+  margin-top: 11rem;
+
+  .text {
+    display: flex;
+    justify-content: center;
+  }
+
+    h2 {
+       font-size: 5.25rem;
+    }
+}
