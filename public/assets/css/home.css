@@ -5004,6 +5004,10 @@
   font-weight: normal;
   font-style: normal;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5021,7 +5025,32 @@ ul li {
   list-style: none;
 }
 
+@keyframes boucingBall {
+  from {
+    transform: translate3d(0, -3rem, 0);
+  }
+  to {
+    transform: translate3d(0, 1rem, 0);
+  }
+}
+header {
+  position: relative;
+}
+header .ball {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  /* Turns a square into a circle   */
+  background-color: #301B3F;
+  opacity: 0.3;
+  animation: boucingBall 1.5s;
+  transition: all ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  position: absolute;
+}
 header nav {
+  z-index: 1;
   height: 5rem;
   display: flex;
   align-items: center;
@@ -5030,12 +5059,33 @@ header nav {
 header nav h1 {
   cursor: pointer;
   font-size: 2rem;
+  position: relative;
+  background-color: transparent;
 }
 header nav .ul-father {
   display: flex;
 }
 header nav .ul-father .li-child {
   padding-right: 1rem;
+  position: relative;
+  display: block;
+}
+header nav .ul-father .li-child a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: #301B3F;
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+  transition: width 0.4s ease-in-out;
+}
+header nav .ul-father .li-child a:hover {
+  color: #3C415C;
+  transition: color 0.3s ease-in-out;
+}
+header nav .ul-father .li-child a:hover::after {
+  width: 100%;
 }
 
 #main-content {
@@ -5047,6 +5097,24 @@ header nav .ul-father .li-child {
 }
 #main-content h2 {
   font-size: 5.25rem;
+  position: relative;
+  background-color: transparent;
+}
+
+#technologys {
+  height: 15rem;
+  margin-top: 15rem;
+}
+#technologys .container .text {
+  margin-bottom: 2rem;
+}
+#technologys .container .father {
+  align-items: center;
+  display: flex;
+}
+#technologys .container .slick-father .slick-child img {
+  width: 9.37rem;
+  height: auto;
 }
 
 /*# sourceMappingURL=home.css.map */

@@ -15,6 +15,9 @@
 }
 
 // ======RESET ==========================
+html {
+  scroll-behavior: smooth;
+}
 
 * {
   margin: 0;
@@ -25,6 +28,7 @@
   color: $white;
 }
 
+
 a {
   text-decoration: none;
 }
@@ -34,16 +38,46 @@ ul li {
 }
 
 // ====== COLORS VARIABLES ==========================
-$black: #0e0e0e;
+$black: #151515;
 $white: #f7f7f7;
+$purple: #301B3F;
+$purple-2: #B4A5A5;
+$blue: #3C415C;
 
 
 // @include media-breakpoint-up(lg)
 
+// ====== KEYFRAMES ==========================
+@keyframes boucingBall {
+  from {
+    transform: translate3d(0, -3rem, 0);
+  }
+  to {
+    transform: translate3d(0, 1rem, 0);
+  }
+}
+
+
 // ====== HEADER ==========================
 header {
+  position: relative;
+
+  .ball {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;         /* Turns a square into a circle   */
+    background-color: $purple; 
+    opacity: 0.3;
+
+    animation: boucingBall 1.5s;
+    transition: all ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    position: absolute;
+  }
   
   nav {
+    z-index: 1;
     height: 5rem;
     display: flex;
     align-items: center;
@@ -52,13 +86,39 @@ header {
     h1 {
       cursor: pointer;
       font-size: 2rem;
+      position: relative;
+      background-color: transparent;
     }
 
     .ul-father {    
       display: flex;
       .li-child {
         padding-right: 1rem;
+        position: relative;
+        display: block;
+
+        a::after {
+          content: '';
+          width: 0%;
+          height: 2px;
+          background-color: $purple;
+          
+          position: absolute;
+          left: 0;
+          bottom: -1.5rem;
+          transition: width 0.4s ease-in-out;
+        }
+
+        a:hover {
+          color: $blue;
+          transition: color 0.3s ease-in-out;
+        }
+
+        a:hover::after {
+          width: 100%;
+        }
       }
+      
     }
   }
 }
@@ -73,6 +133,34 @@ header {
   }
 
     h2 {
-       font-size: 5.25rem;
+      font-size: 5.25rem;
+      position: relative;
+      background-color: transparent;
     }
+}
+
+#technologys {
+  
+  height: 15rem;
+  margin-top: 15rem;
+  .container {
+
+    .text {
+      margin-bottom: 2rem;
+    }
+
+    .father {
+      align-items: center;
+      display: flex;
+    }
+      .slick-father {
+        
+        .slick-child {
+          img {
+            width: 9.37rem;
+            height: auto;
+          }
+        }
+      }
+  }
 }
