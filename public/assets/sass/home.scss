@@ -1,10 +1,18 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap-grid.scss";
 @import "../../../node_modules/bootstrap/scss/_functions.scss";
-@import "../../../node_modules/bootstrap/scss/_variables.scss";
+// @import "../../../node_modules/bootstrap/scss/_variables.scss";
 @import "../../../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
 
 
-// FONTS 
+// ====== FONTS ==========================
+@font-face {
+  font-family: 'encode_sans_sccondensed_thin';
+  src: url('../fonts/encodesanssc-variablefont_wdthwght.woff2') format('woff2'),
+       url('../fonts/encodesanssc-variablefont_wdthwght.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
 
 @font-face {
     font-family: 'righteousregular';
@@ -13,6 +21,18 @@
     font-weight: normal;
     font-style: normal;
 }
+
+
+// ====== COLORS VARIABLES ==========================
+$black: #0f0e17 ;
+$grey: #a7a9be;
+$white: #fffffe;
+$pink: #e53170;
+// $purple: #301B3F;
+$red: #f25f4c;
+// $blue: #3C415C;
+$orange: #ff8906;
+
 
 // ======RESET ==========================
 html {
@@ -23,8 +43,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'righteousregular';
-  background-color: $black;
+  font-family: 'encode_sans_sccondensed_thin'; 
   color: $white;
 }
 
@@ -37,20 +56,28 @@ ul li {
   list-style: none;
 }
 
-// ====== COLORS VARIABLES ==========================
-$black: #151515;
-$white: #f7f7f7;
-$purple: #301B3F;
-$purple-2: #B4A5A5;
-$blue: #3C415C;
+p {
+  color: $grey;
+}
 
+.scrollToTop {
+  margin: 0 30px 20px 0;
+  text-align: center;
+  text-decoration: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: none;
+}
 
-// @include media-breakpoint-up(lg)
+.scrollToTop:hover {
+  text-decoration: none;
+}
 
 // ====== KEYFRAMES ==========================
 @keyframes boucingBall {
   from {
-    transform: translate3d(0, -3rem, 0);
+    transform: translate3d(0, 0rem, 0);
   }
   to {
     transform: translate3d(0, 1rem, 0);
@@ -59,108 +86,343 @@ $blue: #3C415C;
 
 
 // ====== HEADER ==========================
-header {
-  position: relative;
+.background {
+  background-color: $black;
+  height: 100vh;
+
+    header {
+    position: relative;
+
+    .ball {
+      width: 25rem;
+      height: 25rem;
+      border-radius: 50%;         /* Turns a square into a circle   */
+      background-color: $red; 
+      opacity: 0.4;
+
+      animation: boucingBall 1.5s;
+      transition: all ease-in-out;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      position: absolute;
+
+      @include media-breakpoint-down(xl) {
+        width: 20rem;
+        height: 20rem;
+      }
+      
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+    }
+
+    nav {
+      z-index: 1;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .burger {
+        display: none;
+        height: 3em;
+        width: 3em;
+        position: relative;
+        font-size: 12px;
+        cursor: pointer;
+        -webkit-transition: .2s all;
+        -o-transition: .2s all;
+        transition: .2s all;
+        -webkit-tap-highlight-color: transparent; 
+        @include media-breakpoint-down(md) {
+          display: block;
+        }
+      }
+      
+        .burger .burger-lines:after {
+          transition: all 0.5s ease-out;
+          left: 0;
+          top: -1em; 
+        }
+
+        .burger .burger-lines:before {
+          transition: all 0.5s ease-out;
+          left: 1em;
+          top: 1em; 
+        }
+
+        .burger:after {
+          content: '';
+          display: block;
+          position: absolute;
+          height: 150%;
+          width: 150%;
+          top: -25%;
+          left: -25%; }
+
+        .burger .burger-lines {
+          transition: all 0.3s ease-in;
+          top: 50%;
+          margin-top: -0.125em; 
+        }
+          .burger .burger-lines, .burger .burger-lines:after, .burger .burger-lines:before {
+            pointer-events: none;
+            display: block;
+            content: '';
+            width: 100%;
+            border-radius: 0.25em;
+            background-color: white;
+            height: 0.25em;
+            position: absolute;
+            -webkit-transform: rotate(0);
+                -ms-transform: rotate(0);
+                    transform: rotate(0); 
+          }
+          .burger .burger-lines:after {
+            left: 0;
+            top: -1em; 
+          }
+          .burger .burger-lines:before {
+            left: 1em;
+            top: 1em; 
+          }
+      .burger.open {
+        .burger-lines:before {
+          transition: all 0.5s ease-in;
+          left: -1rem;
+        }
+        .burger-lines:after {
+          transition: all 0.5s ease-in;
+          left: 1rem;
+        }
+      }
+          
+      
+      
+      .menu-center {
+        transition: all 0.4s ease-in-out;
+
+        @include media-breakpoint-down(md) {
+          display: block;
+        }
+      }
+
+      h1 {
+        cursor: pointer;
+        font-size: 2rem;
+        position: relative;
+        background-color: transparent;
+        font-family: 'Encode Sans SC', sans-serif;
+        font-weight: 600;
+
+      }
+
+      .ul-father {    
+        display: flex;
+
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
+        .li-child {
+          padding-right: 1rem;
+          position: relative;
+          display: block;
+          font-weight: 600;
+          font-size: 1.2rem;
+
+          a::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background-color: $red;
+
+            position: absolute;
+            left: 0;
+            bottom: -1.5rem;
+            transition: width 0.4s ease-in-out;
+          }
+
+          a:hover {
+            color: $red;
+            transition: color 0.3s ease-in-out;
+          }
+
+          a:hover::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // ====== MAIN-CONTENT ==========================
+  #main-content {
+    margin-top: 11rem;
+
+    @include media-breakpoint-down(md) {
+      margin-top: 3.75rem;
+    }
+
+    .text {
+      display: grid;
+      justify-content: center;
+      margin: 0 auto;
+
+      h2 {
+        font-size: 5.25rem;
+        position: relative;
+        background-color: transparent; 
+        font-family: 'righteousregular';
+        font-weight: 400;   
+        line-height: 5rem;
+        
+        br {
+          display: none;
+        }
+
+        @include media-breakpoint-down(md) {
+          font-size: 4.5rem;
+          line-height: 5rem;
+          
+          br {
+            display: block;
+          }
+        }
+        
+        span {
+          font-family: 'righteousregular';
+          font-weight: 400;  
+          color: $red;         
+        }
+      }
+      
+      p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+
+        @include media-breakpoint-down(sm) {
+        text-align: left;
+        }
+      }
+    }
+
+    .btn-template {
+      color: $white;
+      background-color: $red;
+      font-weight: 600;
+      padding: 1.12rem 3rem;
+      margin: 2rem auto;
+      font-size: 1.2rem;
+      border-top-left-radius: 1.8rem;
+      border-bottom-right-radius: 1.8rem;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid $red;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  // section#technologys {
+  //   height: 15rem;
+  //   margin-top: 15rem;
+
+  //   .container {
+
+  //     .text {
+  //       margin-bottom: 2rem;
+  //       font-weight: 700;
+  //       font-size: 2.12rem;
+  //     }
+
+  //     .father {
+  //       align-items: center;
+  //       display: flex;
+  //     }
+  //     .slick-father {
+        
+  //       .slick-child {
+  //         img {
+  //           width: 9.37rem;
+  //           height: auto;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+section#about {
+  background-color: $white;
+  height: 100vh;
+  position: relative;  
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 2.5rem;
+  }
 
   .ball {
-    width: 20rem;
-    height: 20rem;
+    width: 25rem;
+    height: 25rem;
     border-radius: 50%;         /* Turns a square into a circle   */
-    background-color: $purple; 
-    opacity: 0.3;
+    background-color: $red; 
+    opacity: 0.4;
+    right: 0;
 
     animation: boucingBall 1.5s;
     transition: all ease-in-out;
     animation-direction: alternate;
     animation-iteration-count: infinite;
     position: absolute;
-  }
-  
-  nav {
-    z-index: 1;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    h1 {
-      cursor: pointer;
-      font-size: 2rem;
-      position: relative;
-      background-color: transparent;
+    @include media-breakpoint-down(xl) {
+      width: 20rem;
+      height: 20rem;
     }
 
-    .ul-father {    
-      display: flex;
-      .li-child {
-        padding-right: 1rem;
-        position: relative;
-        display: block;
-
-        a::after {
-          content: '';
-          width: 0%;
-          height: 2px;
-          background-color: $purple;
-          
-          position: absolute;
-          left: 0;
-          bottom: -1.5rem;
-          transition: width 0.4s ease-in-out;
-        }
-
-        a:hover {
-          color: $blue;
-          transition: color 0.3s ease-in-out;
-        }
-
-        a:hover::after {
-          width: 100%;
-        }
-      }
-      
+    @include media-breakpoint-down(sm) {
+      display: none;
     }
   }
-}
-
-// ====== MAIN-CONTENT ==========================
-#main-content {
-  margin-top: 11rem;
 
   .text {
-    display: flex;
-    justify-content: center;
+    margin-top: 10rem;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 2.5rem;
+    }
+    
+    h2 {
+      font-size: 2.12rem;
+      color: $red;
+    }
+
+    p {
+      margin-top: 2.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
   }
 
-    h2 {
-      font-size: 5.25rem;
-      position: relative;
-      background-color: transparent;
-    }
-}
+  img {
+    max-width: 40.62rem;
+    max-height: 25rem;
+    position: absolute;
+    margin-top: 10rem;
+    z-index: 1;
 
-#technologys {
-  
-  height: 15rem;
-  margin-top: 15rem;
-  .container {
-
-    .text {
-      margin-bottom: 2rem;
+    @include media-breakpoint-down(lg) {
+      margin-top: 2.5rem;
     }
 
-    .father {
-      align-items: center;
-      display: flex;
+    @include media-breakpoint-down(md) {
+      margin-top: 2.5rem;
     }
-      .slick-father {
-        
-        .slick-child {
-          img {
-            width: 9.37rem;
-            height: auto;
-          }
-        }
-      }
+
+    @include media-breakpoint-down(sm) {
+      width: calc(100% - 24px);
+      margin-top: 2.5rem;
+    }
   }
 }
