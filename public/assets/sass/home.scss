@@ -44,7 +44,6 @@ html {
   padding: 0;
   box-sizing: border-box;
   font-family: 'encode_sans_sccondensed_thin'; 
-  color: $white;
 }
 
 
@@ -60,6 +59,25 @@ p {
   color: $grey;
 }
 
+.btn-template {
+  color: $white;
+  background-color: $red;
+  font-weight: 600;
+  padding: 1.12rem 3rem;
+  margin: 2rem auto;
+  font-size: 1.2rem;
+  border-top-left-radius: 1.8rem;
+  border-bottom-right-radius: 1.8rem;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid $red;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+    color: $red;
+  }
+}
+
 .scrollToTop {
   margin: 0 30px 20px 0;
   text-align: center;
@@ -72,6 +90,20 @@ p {
 
 .scrollToTop:hover {
   text-decoration: none;
+}
+
+// ANIMATION FADE
+.reveal {
+  position: relative;
+  transform: translateY(9.37rem);
+  opacity: 0;
+  transition: all 3s;
+}
+
+.reveal.active {
+  transform: translateY(0rem);
+  opacity: 1;
+  transition: all 2s;
 }
 
 // ====== KEYFRAMES ==========================
@@ -89,9 +121,9 @@ p {
 .background {
   background-color: $black;
   height: 100vh;
+  color: $white;
 
     header {
-    position: relative;
 
     .ball {
       width: 25rem;
@@ -128,7 +160,7 @@ p {
         height: 3em;
         width: 3em;
         position: relative;
-        font-size: 12px;
+        font-size: 0.75rem;
         cursor: pointer;
         -webkit-transition: .2s all;
         -o-transition: .2s all;
@@ -197,8 +229,6 @@ p {
         }
       }
           
-      
-      
       .menu-center {
         transition: all 0.4s ease-in-out;
 
@@ -224,12 +254,16 @@ p {
           display: none;
         }
         .li-child {
-          padding-right: 1rem;
+          margin-right: 1rem;
           position: relative;
           display: block;
           font-weight: 600;
           font-size: 1.2rem;
-
+          
+          a {
+            color: $white;
+          }
+        
           a::after {
             content: '';
             width: 0%;
@@ -307,53 +341,11 @@ p {
       }
     }
 
-    .btn-template {
-      color: $white;
-      background-color: $red;
-      font-weight: 600;
-      padding: 1.12rem 3rem;
-      margin: 2rem auto;
-      font-size: 1.2rem;
-      border-top-left-radius: 1.8rem;
-      border-bottom-right-radius: 1.8rem;
-      transition: all 0.3s ease-in-out;
-      border: 1px solid $red;
-
-      &:hover {
-        background-color: transparent;
-      }
-    }
-  }
-
-  // section#technologys {
-  //   height: 15rem;
-  //   margin-top: 15rem;
-
-  //   .container {
-
-  //     .text {
-  //       margin-bottom: 2rem;
-  //       font-weight: 700;
-  //       font-size: 2.12rem;
-  //     }
-
-  //     .father {
-  //       align-items: center;
-  //       display: flex;
-  //     }
-  //     .slick-father {
-        
-  //       .slick-child {
-  //         img {
-  //           width: 9.37rem;
-  //           height: auto;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+    
+  }  
 }
 
+// ====== ABOUT ==========================
 section#about {
   background-color: $white;
   height: 100vh;
@@ -426,3 +418,213 @@ section#about {
     }
   }
 }
+
+// ====== TECHNOLOGYS ==========================
+section#technologys {
+  background-color: $black;
+  height: 100%;
+  color: $white;
+
+  .container {
+
+    .ball {
+      width: 25rem;
+      height: 25rem;
+      border-radius: 50%;         /* Turns a square into a circle   */
+      background-color: $red; 
+      opacity: 0.1;
+
+      animation: boucingBall 1.5s;
+      transition: all ease-in-out;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      position: absolute;
+
+      @include media-breakpoint-down(xl) {
+        width: 20rem;
+        height: 20rem;
+      }
+      
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+    }
+    
+    .text {
+      margin-top: 10rem;
+      font-weight: 700;
+      font-size: 2.12rem;
+      position: relative;
+    }
+    
+    // SLICK SLIDE IMAGES
+    .slick-father {
+      margin-top: 4rem;
+
+      .slick-child {
+        img {
+          width: 9.37rem;
+          height: auto;
+        }
+      }
+    }
+
+    // SLICK SLIDE TEXT
+    .slick-text-father {
+
+      margin-top: 2rem;
+      .slick-text-child {
+
+      }
+    }
+
+    .bar {      
+      background-color: $pink;
+      width: 100%;
+      height: 1rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 0 0.8rem 1rem;
+      margin-top: 0.5rem;
+    }
+    
+    .bar.html {
+      margin-top: 4rem;
+      width: 95%;
+    }
+
+    .bar.css {
+      width: 70%;
+    }
+
+    .bar.sass {
+      width: 70%;
+    }
+
+    .bar.javascript {
+      width: 25%;
+    }
+
+    .bar.bootstrap {
+      width: 50%;
+    }
+
+    .bar.slick {
+      width: 90%;
+    }
+
+    .bar.git {
+      width: 40%;
+      margin-bottom: 10rem;
+    }
+  }
+}
+
+// ====== CONTACT ==========================
+section#contact {
+  background-color: $white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .ball {
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;         /* Turns a square into a circle   */
+    background-color: $red; 
+    opacity: 0.4;
+    right: 0;
+
+    animation: boucingBall 1.5s;
+    transition: all ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    position: absolute;
+
+    @include media-breakpoint-down(xl) {
+      width: 20rem;
+      height: 20rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+
+  .text {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10rem;
+    margin-bottom: 1.93rem;
+
+    h2 {
+      font-size: 2.2rem;
+      font-family: 'righteousregular';
+      font-weight: 400;   
+      line-height: 5rem;
+      color: $black;
+
+      span {
+        font: inherit;
+        color: $red;
+      }
+    }
+
+    p {
+      color: $black;
+    }
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    input {
+      padding: 0.93rem; 
+      margin-top: 2.25rem;
+      color: $red;
+      font-weight: 700;
+      width: 90%;
+      
+      border-radius: 0.4rem;
+    }
+    
+    .fix-textarea {
+      display: flex;
+      
+      textarea {
+        padding: 0.93rem; 
+        margin-top: 2.25rem;
+        color: $red;
+        font-weight: 700;
+        width: 90%;
+        resize: none;
+        border-radius: 0.4rem;
+      }
+    }
+
+    .fix-btn {
+      display: flex;
+    }
+  }
+}
+
+// footer#footer {
+//   display: flex;
+//   justify-content: center;
+//   height: 10rem;
+
+//   .bar-footer {
+//     width: 100%;
+//     background-color: $red;
+//     height: 0.2rem;
+//   }
+
+//   h2 {
+//     text-align: center;
+//   }
+// }

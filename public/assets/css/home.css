@@ -5019,7 +5019,6 @@ html {
   padding: 0;
   box-sizing: border-box;
   font-family: "encode_sans_sccondensed_thin";
-  color: #fffffe;
 }
 
 a {
@@ -5032,6 +5031,24 @@ ul li {
 
 p {
   color: #a7a9be;
+}
+
+.btn-template {
+  color: #fffffe;
+  background-color: #f25f4c;
+  font-weight: 600;
+  padding: 1.12rem 3rem;
+  margin: 2rem auto;
+  font-size: 1.2rem;
+  border-top-left-radius: 1.8rem;
+  border-bottom-right-radius: 1.8rem;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #f25f4c;
+  cursor: pointer;
+}
+.btn-template:hover {
+  background-color: transparent;
+  color: #f25f4c;
 }
 
 .scrollToTop {
@@ -5048,6 +5065,19 @@ p {
   text-decoration: none;
 }
 
+.reveal {
+  position: relative;
+  transform: translateY(9.37rem);
+  opacity: 0;
+  transition: all 3s;
+}
+
+.reveal.active {
+  transform: translateY(0rem);
+  opacity: 1;
+  transition: all 2s;
+}
+
 @keyframes boucingBall {
   from {
     transform: translate3d(0, 0rem, 0);
@@ -5059,9 +5089,7 @@ p {
 .background {
   background-color: #0f0e17;
   height: 100vh;
-}
-.background header {
-  position: relative;
+  color: #fffffe;
 }
 .background header .ball {
   width: 25rem;
@@ -5099,7 +5127,7 @@ p {
   height: 3em;
   width: 3em;
   position: relative;
-  font-size: 12px;
+  font-size: 0.75rem;
   cursor: pointer;
   -webkit-transition: 0.2s all;
   -o-transition: 0.2s all;
@@ -5189,11 +5217,14 @@ p {
   }
 }
 .background header nav .ul-father .li-child {
-  padding-right: 1rem;
+  margin-right: 1rem;
   position: relative;
   display: block;
   font-weight: 600;
   font-size: 1.2rem;
+}
+.background header nav .ul-father .li-child a {
+  color: #fffffe;
 }
 .background header nav .ul-father .li-child a::after {
   content: "";
@@ -5259,21 +5290,6 @@ p {
   .background #main-content .text p {
     text-align: left;
   }
-}
-.background #main-content .btn-template {
-  color: #fffffe;
-  background-color: #f25f4c;
-  font-weight: 600;
-  padding: 1.12rem 3rem;
-  margin: 2rem auto;
-  font-size: 1.2rem;
-  border-top-left-radius: 1.8rem;
-  border-bottom-right-radius: 1.8rem;
-  transition: all 0.3s ease-in-out;
-  border: 1px solid #f25f4c;
-}
-.background #main-content .btn-template:hover {
-  background-color: transparent;
 }
 
 section#about {
@@ -5350,6 +5366,167 @@ section#about img {
     width: calc(100% - 24px);
     margin-top: 2.5rem;
   }
+}
+
+section#technologys {
+  background-color: #0f0e17;
+  height: 100%;
+  color: #fffffe;
+}
+section#technologys .container .ball {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  /* Turns a square into a circle   */
+  background-color: #f25f4c;
+  opacity: 0.1;
+  animation: boucingBall 1.5s;
+  transition: all ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  position: absolute;
+}
+@media (max-width: 1199.98px) {
+  section#technologys .container .ball {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+@media (max-width: 575.98px) {
+  section#technologys .container .ball {
+    display: none;
+  }
+}
+section#technologys .container .text {
+  margin-top: 10rem;
+  font-weight: 700;
+  font-size: 2.12rem;
+  position: relative;
+}
+section#technologys .container .slick-father {
+  margin-top: 4rem;
+}
+section#technologys .container .slick-father .slick-child img {
+  width: 9.37rem;
+  height: auto;
+}
+section#technologys .container .slick-text-father {
+  margin-top: 2rem;
+}
+section#technologys .container .bar {
+  background-color: #e53170;
+  width: 100%;
+  height: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 0 0.8rem 1rem;
+  margin-top: 0.5rem;
+}
+section#technologys .container .bar.html {
+  margin-top: 4rem;
+  width: 95%;
+}
+section#technologys .container .bar.css {
+  width: 70%;
+}
+section#technologys .container .bar.sass {
+  width: 70%;
+}
+section#technologys .container .bar.javascript {
+  width: 25%;
+}
+section#technologys .container .bar.bootstrap {
+  width: 50%;
+}
+section#technologys .container .bar.slick {
+  width: 90%;
+}
+section#technologys .container .bar.git {
+  width: 40%;
+  margin-bottom: 10rem;
+}
+
+section#contact {
+  background-color: #fffffe;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+section#contact .ball {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  /* Turns a square into a circle   */
+  background-color: #f25f4c;
+  opacity: 0.4;
+  right: 0;
+  animation: boucingBall 1.5s;
+  transition: all ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  position: absolute;
+}
+@media (max-width: 1199.98px) {
+  section#contact .ball {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+@media (max-width: 575.98px) {
+  section#contact .ball {
+    display: none;
+  }
+}
+section#contact .text {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10rem;
+  margin-bottom: 1.93rem;
+}
+section#contact .text h2 {
+  font-size: 2.2rem;
+  font-family: "righteousregular";
+  font-weight: 400;
+  line-height: 5rem;
+  color: #0f0e17;
+}
+section#contact .text h2 span {
+  font: inherit;
+  color: #f25f4c;
+}
+section#contact .text p {
+  color: #0f0e17;
+}
+section#contact form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+section#contact form input {
+  padding: 0.93rem;
+  margin-top: 2.25rem;
+  color: #f25f4c;
+  font-weight: 700;
+  width: 90%;
+  border-radius: 0.4rem;
+}
+section#contact form .fix-textarea {
+  display: flex;
+}
+section#contact form .fix-textarea textarea {
+  padding: 0.93rem;
+  margin-top: 2.25rem;
+  color: #f25f4c;
+  font-weight: 700;
+  width: 90%;
+  resize: none;
+  border-radius: 0.4rem;
+}
+section#contact form .fix-btn {
+  display: flex;
 }
 
 /*# sourceMappingURL=home.css.map */

@@ -1,4 +1,14 @@
 
+
+// TOGGLE MENU
+var menu = document.querySelector('div.burger')
+
+menu.addEventListener('click', function() {
+
+  menu.classList.toggle('open')
+})
+
+// SLICK IMAGES
 $('.slick-father').slick({
   arrows: false,
   slidesToShow: 3,
@@ -7,13 +17,17 @@ $('.slick-father').slick({
   autoplaySpeed: 3500
 });
 
-  // TOGGLE MENU
-var menu = document.querySelector('div.burger')
 
-menu.addEventListener('click', function() {
 
-  menu.classList.toggle('open')
-})
+// SLICK TEXTS
+
+$('.slick-text-father').slick({
+  dots: false,
+  arrows: false,
+  autoplay: true,
+  slidesToScroll: 1,
+  autoplaySpeed: 3500,
+});
 
 // BUTTON REDIRECT TOP
 jQuery(document).ready(function($) {
@@ -39,6 +53,27 @@ jQuery(document).ready(function($) {
     return false;
   });
 
-  });
+});
+
+window.addEventListener('scroll', reveal)
+
+function reveal() {
+  var reveals = document.querySelectorAll('.reveal')
+
+  for(var i = 0; i < reveals.length; i++) {
+    
+    var windowHeight = window.innerHeight;
+    var revealTop = reveals[i].getBoundingClientRect().top;
+    var revealPoint = 150
+
+    if (revealTop < windowHeight - revealPoint) {
+      reveals[i].classList.add('active')
+    } else {
+      reveals[i].classList.remove('active')
+    }
+  }
+}
+
+
 
 
