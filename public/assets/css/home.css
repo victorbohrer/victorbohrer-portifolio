@@ -5116,6 +5116,7 @@ p {
   }
 }
 .background header nav {
+  overflow: visible;
   z-index: 1;
   height: 5rem;
   display: flex;
@@ -5190,7 +5191,7 @@ p {
 }
 .background header nav .burger.open .burger-lines:after {
   transition: all 0.5s ease-in;
-  left: 1rem;
+  left: 0.7rem;
 }
 .background header nav .menu-center {
   transition: all 0.4s ease-in-out;
@@ -5422,6 +5423,10 @@ section#technologys .container .bar {
   align-items: center;
   padding: 0.8rem 0 0.8rem 1rem;
   margin-top: 0.5rem;
+  justify-content: space-between;
+}
+section#technologys .container .bar span {
+  padding-right: 1rem;
 }
 section#technologys .container .bar.html {
   margin-top: 4rem;

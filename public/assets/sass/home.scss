@@ -149,6 +149,7 @@ p {
     }
 
     nav {
+      overflow: visible;
       z-index: 1;
       height: 5rem;
       display: flex;
@@ -166,6 +167,7 @@ p {
         -o-transition: .2s all;
         transition: .2s all;
         -webkit-tap-highlight-color: transparent; 
+
         @include media-breakpoint-down(md) {
           display: block;
         }
@@ -225,7 +227,7 @@ p {
         }
         .burger-lines:after {
           transition: all 0.5s ease-in;
-          left: 1rem;
+          left: 0.7rem;
         }
       }
           
@@ -487,6 +489,11 @@ section#technologys {
       align-items: center;
       padding: 0.8rem 0 0.8rem 1rem;
       margin-top: 0.5rem;
+      justify-content: space-between;
+
+      span {
+        padding-right: 1rem;
+      }
     }
     
     .bar.html {
