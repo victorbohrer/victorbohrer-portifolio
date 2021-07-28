@@ -73,3 +73,23 @@ function reveal() {
     }
   }
 }
+
+const test = document.querySelector('#footer .bar-footer')
+
+console.log(test)
+
+// test.addEventListener('mouseenter', function(event) {
+//   event.target.style.background = "purple"
+
+//   setTimeout(function() {
+//     event.target.style.background = ""
+//   }, 900)
+// }, false)
+
+test.addEventListener('mouseover', function(event) {
+  event.target.style.background = "purple"
+
+  setTimeout(function() {
+    event.target.style.background = ""
+  }, 500)
+}, true)
