@@ -5277,6 +5277,11 @@ p {
     display: block;
   }
 }
+@media (max-width: 575.98px) {
+  .background #main-content .text h2 {
+    font-size: 4rem;
+  }
+}
 .background #main-content .text h2 span {
   font-family: "righteousregular";
   font-weight: 400;
@@ -5296,6 +5301,11 @@ p {
 section#about {
   position: relative;
   padding-bottom: 10rem;
+}
+@media (max-width: 575.98px) {
+  section#about {
+    padding-bottom: 2.5rem;
+  }
 }
 section#about .ball {
   width: 25rem;
@@ -5371,11 +5381,6 @@ section#about .text p {
     justify-content: center;
   }
 }
-@media (max-width: 575.98px) {
-  section#about .box-img {
-    padding-bottom: 2.5rem;
-  }
-}
 section#about .box-img img {
   border-bottom-right-radius: 1.8rem;
   border-top-left-radius: 1.8rem;
@@ -5395,12 +5400,14 @@ section#about .box-img img {
 
 section#technologys {
   background-color: #0f0e17;
-  height: 100%;
   color: #fffffe;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 @media (max-width: 575.98px) {
   section#technologys {
-    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 }
 section#technologys .container .ball {
@@ -5428,10 +5435,22 @@ section#technologys .container .ball {
   }
 }
 section#technologys .container .text {
-  margin-top: 10rem;
   font-weight: 700;
   font-size: 2.12rem;
   position: relative;
+}
+@media (max-width: 575.98px) {
+  section#technologys .container .text {
+    font-size: 1.9rem;
+  }
+}
+section#technologys .container #teste {
+  margin-top: 10rem;
+}
+@media (max-width: 575.98px) {
+  section#technologys .container #teste {
+    margin-top: 3.75rem;
+  }
 }
 section#technologys .container .slick-father {
   margin-top: 4rem;
@@ -5450,9 +5469,6 @@ section#technologys .container .slick-father .slick-child img {
   section#technologys .container .slick-father .slick-child img {
     width: 5rem;
   }
-}
-section#technologys .container .slick-text-father {
-  margin-top: 2rem;
 }
 section#technologys .container .bar {
   background-color: #e53170;
@@ -5489,7 +5505,6 @@ section#technologys .container .bar.slick {
 }
 section#technologys .container .bar.git {
   width: 40%;
-  margin-bottom: 10rem;
 }
 
 section#contact {
@@ -5529,6 +5544,11 @@ section#contact .text {
   margin-top: 10rem;
   margin-bottom: 1.93rem;
 }
+@media (max-width: 575.98px) {
+  section#contact .text {
+    margin-top: 2.5rem;
+  }
+}
 section#contact .text h2 {
   font-size: 2.2rem;
   font-family: "righteousregular";
@@ -5548,6 +5568,11 @@ section#contact form {
   justify-content: center;
   flex-wrap: wrap;
 }
+@media (max-width: 575.98px) {
+  section#contact form {
+    display: block;
+  }
+}
 section#contact form input {
   padding: 0.93rem;
   margin-top: 2.25rem;
@@ -5555,6 +5580,11 @@ section#contact form input {
   font-weight: 700;
   width: 90%;
   border-radius: 0.4rem;
+}
+@media (max-width: 575.98px) {
+  section#contact form input {
+    width: 100%;
+  }
 }
 section#contact form .fix-textarea {
   display: flex;
@@ -5567,6 +5597,11 @@ section#contact form .fix-textarea textarea {
   width: 90%;
   resize: none;
   border-radius: 0.4rem;
+}
+@media (max-width: 575.98px) {
+  section#contact form .fix-textarea textarea {
+    width: 100%;
+  }
 }
 section#contact form .fix-btn {
   display: flex;

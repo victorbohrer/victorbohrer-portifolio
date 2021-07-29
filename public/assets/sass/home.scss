@@ -319,12 +319,17 @@ p {
         @include media-breakpoint-down(md) {
           font-size: 4.5rem;
           line-height: 5rem;
+
           
           br {
             display: block;
           }
         }
-        
+
+        @include media-breakpoint-down(sm) {
+          font-size: 4rem;
+        }
+
         span {
           font-family: 'righteousregular';
           font-weight: 400;  
@@ -349,8 +354,9 @@ p {
 section#about {
   position: relative;  
   padding-bottom: 10rem;
+
   @include media-breakpoint-down(sm) {
-    // margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .ball {
@@ -424,10 +430,6 @@ section#about {
       justify-content: center;
     }
 
-    @include media-breakpoint-down(sm) {
-      padding-bottom: 2.5rem;
-    }
-
     img {
       border-bottom-right-radius: 1.8rem;
       border-top-left-radius: 1.8rem;
@@ -449,10 +451,13 @@ section#about {
 // ====== TECHNOLOGYS ==========================
 section#technologys {
   background-color: $black;
-  height: 100%;
   color: $white;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+
   @include media-breakpoint-down(sm) {
-    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .container {
@@ -481,10 +486,22 @@ section#technologys {
     }
     
     .text {
-      margin-top: 10rem;
       font-weight: 700;
       font-size: 2.12rem;
       position: relative;
+
+      
+      @include media-breakpoint-down(sm) {
+        font-size: 1.9rem;
+      }
+    }
+    
+    #teste {
+      margin-top: 10rem;
+
+      @include media-breakpoint-down(sm) {
+        margin-top: 3.75rem;
+      }
     }
     
     // SLICK SLIDE IMAGES
@@ -507,15 +524,6 @@ section#technologys {
             width: 5rem;
           }
         }
-      }
-    }
-
-    // SLICK SLIDE TEXT
-    .slick-text-father {
-
-      margin-top: 2rem;
-      .slick-text-child {
-
       }
     }
 
@@ -562,7 +570,6 @@ section#technologys {
 
     .bar.git {
       width: 40%;
-      margin-bottom: 10rem;
     }
   }
 }
@@ -604,6 +611,10 @@ section#contact {
     margin-top: 10rem;
     margin-bottom: 1.93rem;
 
+    @include media-breakpoint-down(sm) {
+      margin-top: 2.5rem;
+    }
+
     h2 {
       font-size: 2.2rem;
       font-family: 'righteousregular';
@@ -626,6 +637,9 @@ section#contact {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    @include media-breakpoint-down(sm) {
+      display: block;
+    }
 
     input {
       padding: 0.93rem; 
@@ -633,6 +647,10 @@ section#contact {
       color: $red;
       font-weight: 700;
       width: 90%;
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+
+      }
       
       border-radius: 0.4rem;
     }
@@ -648,6 +666,11 @@ section#contact {
         width: 90%;
         resize: none;
         border-radius: 0.4rem;
+
+        @include media-breakpoint-down(sm) {
+          width: 100%;
+  
+        }
       }
     }
 
