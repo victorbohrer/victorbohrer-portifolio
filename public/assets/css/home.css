@@ -5045,6 +5045,7 @@ p {
   transition: all 0.3s ease-in-out;
   border: 1px solid #f25f4c;
   cursor: pointer;
+  margin-bottom: 10rem;
 }
 .btn-template:hover {
   background-color: transparent;
@@ -5088,7 +5089,6 @@ p {
 }
 .background {
   background-color: #0f0e17;
-  height: 100vh;
   color: #fffffe;
 }
 .background header .ball {
@@ -5294,9 +5294,8 @@ p {
 }
 
 section#about {
-  background-color: #fffffe;
-  height: 100vh;
   position: relative;
+  padding-bottom: 10rem;
 }
 section#about .ball {
   width: 25rem;
@@ -5306,6 +5305,7 @@ section#about .ball {
   background-color: #f25f4c;
   opacity: 0.4;
   right: 0;
+  z-index: -1;
   animation: boucingBall 1.5s;
   transition: all ease-in-out;
   animation-direction: alternate;
@@ -5365,9 +5365,6 @@ section#about .text p {
     font-size: 0.9rem;
   }
 }
-section#about .box-img {
-  position: relative;
-}
 @media (max-width: 991.98px) {
   section#about .box-img {
     display: flex;
@@ -5382,7 +5379,6 @@ section#about .box-img {
 section#about .box-img img {
   border-bottom-right-radius: 1.8rem;
   border-top-left-radius: 1.8rem;
-  position: absolute;
   margin-top: 10rem;
   z-index: 1;
 }
@@ -5497,8 +5493,6 @@ section#technologys .container .bar.git {
 }
 
 section#contact {
-  background-color: #fffffe;
-  height: 100vh;
   display: flex;
   justify-content: center;
   position: relative;

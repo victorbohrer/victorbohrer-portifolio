@@ -1,5 +1,4 @@
 
-
 // TOGGLE MENU
 var menu = document.querySelector('div.burger')
 
@@ -92,4 +91,17 @@ test.addEventListener('mouseover', function(event) {
   setTimeout(function() {
     event.target.style.background = ""
   }, 500)
-}, true)
+}, false)
+
+// const img = [
+//   'assets/img/bootstrap-icon.png',
+//   'assets/img/github-icon.png'
+// ];
+
+// const imagemTag = new Image(500)
+
+// imagemTag.src = img[1]
+
+// document.body.appendChild(imagemTag)
+
+
