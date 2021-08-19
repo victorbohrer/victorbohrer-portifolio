@@ -5010,8 +5010,9 @@
   font-weight: normal;
   font-style: normal;
 }
-html {
+html, body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 * {
@@ -5091,29 +5092,9 @@ p {
   background-color: #0f0e17;
   color: #fffffe;
 }
-.background header .ball {
-  width: 25rem;
-  height: 25rem;
-  border-radius: 50%;
-  /* Turns a square into a circle   */
-  background-color: #f25f4c;
-  opacity: 0.4;
-  animation: boucingBall 1.5s;
-  transition: all ease-in-out;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  position: absolute;
-}
-@media (max-width: 1199.98px) {
-  .background header .ball {
-    width: 20rem;
-    height: 20rem;
-  }
-}
-@media (max-width: 575.98px) {
-  .background header .ball {
-    display: none;
-  }
+.background header {
+  z-index: 2;
+  position: relative;
 }
 .background header nav {
   overflow: visible;
@@ -5141,12 +5122,12 @@ p {
   }
 }
 .background header nav .burger .burger-lines:after {
-  transition: all 0.5s ease-out;
+  transition: all 0.3s ease-out;
   left: 0;
   top: -1em;
 }
 .background header nav .burger .burger-lines:before {
-  transition: all 0.5s ease-out;
+  transition: all 0.3s ease-out;
   left: 1em;
   top: 1em;
 }
@@ -5186,20 +5167,12 @@ p {
   top: 1em;
 }
 .background header nav .burger.open .burger-lines:before {
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
   left: -1rem;
 }
 .background header nav .burger.open .burger-lines:after {
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
   left: 0.7rem;
-}
-.background header nav .menu-center {
-  transition: all 0.4s ease-in-out;
-}
-@media (max-width: 767.98px) {
-  .background header nav .menu-center {
-    display: block;
-  }
 }
 .background header nav h1 {
   cursor: pointer;
@@ -5209,25 +5182,46 @@ p {
   font-family: "Encode Sans SC", sans-serif;
   font-weight: 600;
 }
-.background header nav .ul-father {
+@media (max-width: 767.98px) {
+  .background header nav .menu-nav {
+    position: static;
+  }
+}
+@media (max-width: 767.98px) {
+  .background header nav .menu-nav {
+    background-color: #f25f4c;
+    left: 100%;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    transition: 0.3s;
+    align-items: center;
+    top: 0;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+}
+.background header nav .menu-nav .ul-father {
   display: flex;
 }
 @media (max-width: 767.98px) {
-  .background header nav .ul-father {
-    display: none;
+  .background header nav .menu-nav .ul-father {
+    display: block;
   }
 }
-.background header nav .ul-father .li-child {
+.background header nav .menu-nav .ul-father .li-child {
   margin-right: 1rem;
   position: relative;
   display: block;
   font-weight: 600;
   font-size: 1.2rem;
 }
-.background header nav .ul-father .li-child a {
+.background header nav .menu-nav .ul-father .li-child a {
   color: #fffffe;
 }
-.background header nav .ul-father .li-child a::after {
+.background header nav .menu-nav .ul-father .li-child a::after {
   content: "";
   width: 0%;
   height: 2px;
@@ -5237,19 +5231,47 @@ p {
   bottom: -1.5rem;
   transition: width 0.4s ease-in-out;
 }
-.background header nav .ul-father .li-child a:hover {
+.background header nav .menu-nav .ul-father .li-child a:hover {
   color: #f25f4c;
   transition: color 0.3s ease-in-out;
 }
-.background header nav .ul-father .li-child a:hover::after {
+.background header nav .menu-nav .ul-father .li-child a:hover::after {
   width: 100%;
 }
+.background header nav .menu-nav.open {
+  left: 0;
+}
 .background #main-content {
-  margin-top: 11rem;
+  padding-top: 11rem;
 }
 @media (max-width: 767.98px) {
   .background #main-content {
-    margin-top: 3.75rem;
+    padding-top: 3.75rem;
+  }
+}
+.background #main-content .ball {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  /* Turns a square into a circle   */
+  background-color: #f25f4c;
+  opacity: 0.4;
+  top: 0;
+  animation: boucingBall 1.5s;
+  transition: all ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  position: absolute;
+}
+@media (max-width: 1199.98px) {
+  .background #main-content .ball {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .background #main-content .ball {
+    display: none;
   }
 }
 .background #main-content .text {

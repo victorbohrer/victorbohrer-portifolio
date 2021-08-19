@@ -1,11 +1,29 @@
 
 // TOGGLE MENU
-var menu = document.querySelector('div.burger')
 
-menu.addEventListener('click', function() {
+const lista = document.querySelector('.menu-nav')
+const hamburger = document.querySelector('.burger')
 
-  menu.classList.toggle('open')
+hamburger.addEventListener('click', mobileToggle)
+
+function mobileToggle() {
+  hamburger.classList.toggle('open')
+  lista.classList.toggle('open')
+}
+
+window.addEventListener('hashchange', function(){
+  
+  if(hamburger.classList.contains('open')) {
+    mobileToggle()
+  }
 })
+
+// var menu = document.querySelector('div.burger')
+
+// menu.addEventListener('click', function() {
+
+//   menu.classList.toggle('open')
+// })
 
 // SLICK IMAGES
 $('.slick-father').slick({
@@ -73,35 +91,7 @@ function reveal() {
   }
 }
 
-const test = document.querySelector('#footer .bar-footer')
 
-console.log(test)
 
-// test.addEventListener('mouseenter', function(event) {
-//   event.target.style.background = "purple"
-
-//   setTimeout(function() {
-//     event.target.style.background = ""
-//   }, 900)
-// }, false)
-
-test.addEventListener('mouseover', function(event) {
-  event.target.style.background = "purple"
-
-  setTimeout(function() {
-    event.target.style.background = ""
-  }, 500)
-}, false)
-
-// const img = [
-//   'assets/img/bootstrap-icon.png',
-//   'assets/img/github-icon.png'
-// ];
-
-// const imagemTag = new Image(500)
-
-// imagemTag.src = img[1]
-
-// document.body.appendChild(imagemTag)
 
 
