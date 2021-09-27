@@ -5035,18 +5035,17 @@ p {
 }
 
 .btn-template {
-  color: #fffffe;
   background-color: #f25f4c;
   font-weight: 600;
   padding: 1.12rem 3rem;
-  margin: 2rem auto;
+  margin: 2rem auto 0px;
   font-size: 1.2rem;
+  color: #fffffe;
   border-top-left-radius: 1.8rem;
   border-bottom-right-radius: 1.8rem;
   transition: all 0.3s ease-in-out;
   border: 1px solid #f25f4c;
   cursor: pointer;
-  margin-bottom: 10rem;
 }
 .btn-template:hover {
   background-color: transparent;
@@ -5217,6 +5216,12 @@ p {
   display: block;
   font-weight: 600;
   font-size: 1.2rem;
+  margin-top: 60px;
+}
+@media (max-width: 767.98px) {
+  .background header nav .menu-nav .ul-father .li-child {
+    font-size: 34px;
+  }
 }
 .background header nav .menu-nav .ul-father .li-child a {
   color: #fffffe;
@@ -5235,6 +5240,11 @@ p {
   color: #f25f4c;
   transition: color 0.3s ease-in-out;
 }
+@media (max-width: 767.98px) {
+  .background header nav .menu-nav .ul-father .li-child a:hover {
+    color: #0f0e17;
+  }
+}
 .background header nav .menu-nav .ul-father .li-child a:hover::after {
   width: 100%;
 }
@@ -5242,11 +5252,21 @@ p {
   left: 0;
 }
 .background #main-content {
-  padding-top: 11rem;
+  padding: 250px 0px;
+}
+@media (max-width: 1199.98px) {
+  .background #main-content {
+    padding: 250px 0px;
+  }
 }
 @media (max-width: 767.98px) {
   .background #main-content {
-    padding-top: 3.75rem;
+    padding: 150px 0px;
+  }
+}
+@media (max-width: 575.98px) {
+  .background #main-content {
+    padding-top: 100px;
   }
 }
 .background #main-content .ball {
@@ -5533,6 +5553,8 @@ section#contact {
   display: flex;
   justify-content: center;
   position: relative;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 section#contact .ball {
   width: 25rem;
@@ -5563,7 +5585,6 @@ section#contact .text {
   display: grid;
   justify-content: center;
   text-align: center;
-  margin-top: 10rem;
   margin-bottom: 1.93rem;
 }
 @media (max-width: 575.98px) {
@@ -5598,15 +5619,31 @@ section#contact form {
 section#contact form input {
   padding: 0.93rem;
   margin-top: 2.25rem;
-  color: #f25f4c;
   font-weight: 700;
   width: 90%;
+  color: #f25f4c;
   border-radius: 0.4rem;
 }
 @media (max-width: 575.98px) {
   section#contact form input {
     width: 100%;
   }
+}
+section#contact form input[type=submit] {
+  padding: 0.93rem;
+  margin-top: 2.25rem;
+  font-weight: 700;
+  width: 20%;
+  color: #fffffe;
+  border-radius: 0.4rem;
+}
+@media (max-width: 575.98px) {
+  section#contact form input[type=submit] {
+    width: 100%;
+  }
+}
+section#contact form input[type=submit]:hover {
+  color: #f25f4c;
 }
 section#contact form .fix-textarea {
   display: flex;

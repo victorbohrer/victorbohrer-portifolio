@@ -1,3 +1,9 @@
+<?php
+
+include ('./sistemaForm.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -18,9 +24,41 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
     <title>Victor Bohrer - Portifolio</title>
   </head>
   <body>
+
+  <?php
+
+      $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+
+      if(!empty($data['sendAddMsg'])){
+        
+
+        $query_msg = "INSERT INTO concatc_msgs(name, email, subject, message, created, number) VALUES(:name, :email, :subject, :message, NOW(), :number)";
+
+        $add_msg = $conn->prepare($query_msg);
+
+        $add_msg->bindParam(':name', $data['name']);
+        $add_msg->bindParam(':email', $data['email']);
+        $add_msg->bindParam(':subject', $data['subject']);
+        $add_msg->bindParam(':message', $data['message']);
+        $add_msg->bindParam(':number', $data['number']);
+
+        $add_msg->execute();
+
+        if($add_msg->rowCount()) {
+          // echo "SUCESSO NO DB";
+        } else {
+          // echo "ERRO NO DB";
+        }
+      }
+
+  ?>
 
     <div class="background" id="#top">
       <header>
@@ -205,7 +243,7 @@
             </div>
           </div>
         </div>        
-      </section>
+      </section>     
 
       <section id="contact">
         <div class="container">
@@ -223,32 +261,36 @@
               </div>
             </div>
             <div class="col-xl-12">
-              <form action="" method="post">
-                <div class="col-xl-5 col-sm-12 col-xs-12">
-                  <input type="text" placeholder="nome" required>
-                </div>
-                <div class="col-xl-5 col-sm-12 col-xs-12">
-                  <input type="email" placeholder="email" required>
-                </div>
-                <div class="col-xl-5 col-sm-12 col-xs-12">
-                  <input type="number" placeholder="celular">
-                </div>
-                <div class="col-xl-5 col-sm-12 col-xs-12">
-                  <input type="text" placeholder="assunto"> 
-                </div>
 
-                <div class="col-xl-6 col-sm-12 col-xs-12">
-                  <div class="fix-textarea">
-                    <textarea name="" id="" placeholder="escreva aqui sua mensagem" cols="30" rows="5"></textarea>
-                  </div>
+            <form name="name_msg" action="" autocomplete="off" method="POST">
+              <div class="col-xl-5 col-sm-12 col-xs-12">
+                <input type="text" placeholder="nome" name="name" id="name" required>
+              </div>
+    
+              <div class="col-xl-5 col-sm-12 col-xs-12">
+                <input type="email" name="email" id="email" placeholder="email" required>
+              </div>
+    
+              <div class="col-xl-5 col-sm-12 col-xs-12">
+                <input type="text" name="number" id="number" placeholder="celular" class="telefone">
+              </div>
+    
+              <div class="col-xl-5 col-sm-12 col-xs-12">
+                <input type="text" name="subject" id="subject" placeholder="assunto"> 
+              </div>
+        
+              <div class="col-xl-6 col-sm-12 col-xs-12">
+                <div class="fix-textarea">
+                  <textarea name="message" id="message" placeholder="escreva aqui sua mensagem" cols="30" rows="5"></textarea>
                 </div>
-                <div class="col-xl-12 col-sm-12 col-xs-12">
-                  <div class="fix-btn">
-                    <button class="btn-template" type="submit">Enviar</button>
-                  </div>
+              </div>
+        
+              <div class="col-xl-12 col-sm-12 col-xs-12">
+                <div class="fix-btn">
+                  <input class="btn-template" type="submit" name="sendAddMsg" value="Enviar">
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </section>
@@ -261,6 +303,8 @@
       </svg>
     </a>
     <!-- SCRIPT JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
